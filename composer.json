@@ -9,5 +9,8 @@
             "email": "Ievgen_Kyvgyla@epam.com"
         }
     ],
-    "require": {}
+    "require": {
+        "symfony/http-kernel": "^4.1",
+        "symfony/yaml": "^4.1"
+    }
 }
