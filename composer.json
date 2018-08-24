@@ -1,0 +1,13 @@
+{
+    "name": "dallask/framework",
+    "description": "My awesome framework",
+    "type": "project",
+    "license": "GNU",
+    "authors": [
+        {
+            "name": "Ievgen Kyvgyla",
+            "email": "Ievgen_Kyvgyla@epam.com"
+        }
+    ],
+    "require": {}
+}
