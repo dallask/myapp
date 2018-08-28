@@ -36,5 +36,10 @@
             "@composer run-script phpmd",
             "@composer run-script phpcpd"
         ]
+    },
+    "autoload": {
+        "psr-4": {
+            "MyApp\\": "src/"
+        }
     }
 }
