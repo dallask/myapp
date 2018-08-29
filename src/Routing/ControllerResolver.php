@@ -18,12 +18,19 @@ use Symfony\Component\HttpFoundation\Request;
 class ControllerResolver implements ControllerResolverInterface
 {
 
+    private $routes = [];
+
+    public function __construct(ControllerIterator $iterator)
+    {
+        $this->routes = $iterator;
+    }
+
     /**
      * @param \MyApp\Routing\RouteInterface $route+
      */
     public function add(RouteInterface $route)
     {
-        // TODO: Implement add() method.
+        $this->routes->add($route);
     }
 
     /**
@@ -33,6 +40,12 @@ class ControllerResolver implements ControllerResolverInterface
      */
     public function getController(Request $request)
     {
-        // TODO: Implement getController() method.
+        foreach ($this->routes as $route) {
+            if ($route->matches($request->getRequestUri())) {
+                return $route->getController();
+            }
+        }
+
+        return false;
     }
 }

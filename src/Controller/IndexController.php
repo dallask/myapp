@@ -8,6 +8,8 @@
 
 namespace MyApp\Controller;
 
+use Symfony\Component\HttpFoundation\Response;
+
 /**
  * Class IndexController
  *
@@ -16,7 +18,8 @@ namespace MyApp\Controller;
 class IndexController
 {
 
-    public function indexAction()
+    public static function indexAction()
     {
+        return new Response("Hello World!");
     }
 }

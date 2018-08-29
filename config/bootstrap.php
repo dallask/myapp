@@ -8,6 +8,7 @@
 
 use MyApp\Routing\ControllerResolver;
 use MyApp\Routing\Route;
+use MyApp\Routing\ControllerIterator;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,14 +22,15 @@ $eventDispatcher = new EventDispatcher();
 $eventDispatcher->addListener(
     KernelEvents::EXCEPTION, function (GetResponseForExceptionEvent $event) {
     $response = new Response(
-        'Path "' . $event->getRequest()->getPathInfo() . '" not found in the app.',
+        'Path "' . $event->getRequest()->getPathInfo()
+        . '" not found in the app.',
         404
     );
     $event->setResponse($response);
 }
 );
 
-$controllerResolver = new ControllerResolver();
+$controllerResolver = new ControllerResolver(new ControllerIterator());
 $controllerResolver->add(
     new Route('~^/$~', ['MyApp\\Controller\\IndexController', 'indexAction'])
 );

@@ -23,6 +23,11 @@ class ControllerIterator implements \Iterator
         $this->position = 0;
     }
 
+    public function add($item)
+    {
+        return $this->array[] = $item;
+    }
+
     public function current()
     {
         return $this->array[$this->position];

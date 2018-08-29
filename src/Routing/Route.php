@@ -16,6 +16,9 @@ namespace MyApp\Routing;
 class Route implements RouteInterface
 {
 
+    private $regexp;
+
+    private $controller;
     /**
      * Route constructor.
      *
@@ -24,6 +27,8 @@ class Route implements RouteInterface
      */
     public function __construct($regexp, callable $controller)
     {
+        $this->regexp = $regexp;
+        $this->controller = $controller;
     }
 
     /**
@@ -38,6 +43,6 @@ class Route implements RouteInterface
 
     public function getController()
     {
-        // TODO: Implement getController() method.
+        return $this->controller;
     }
 }
