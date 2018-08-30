@@ -18,10 +18,4 @@ use Symfony\Component\HttpKernel\Controller\ControllerResolverInterface as BaseI
 interface ControllerResolverInterface extends BaseInterface
 {
 
-    /**
-     * @param \MyApp\Routing\RouteInterface $route
-     *
-     * @return mixed
-     */
-    public function add(RouteInterface $route);
 }

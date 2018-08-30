@@ -20,17 +20,9 @@ class ControllerResolver implements ControllerResolverInterface
 
     private $routes = [];
 
-    public function __construct(ControllerIterator $iterator)
+    public function __construct($routesCollection)
     {
-        $this->routes = $iterator;
-    }
-
-    /**
-     * @param \MyApp\Routing\RouteInterface $route+
-     */
-    public function add(RouteInterface $route)
-    {
-        $this->routes->add($route);
+        $this->routes = $routesCollection;
     }
 
     /**

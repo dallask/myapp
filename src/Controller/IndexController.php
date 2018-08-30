@@ -22,4 +22,9 @@ class IndexController
     {
         return new Response("Hello World!");
     }
+
+    public static function indexActionNew()
+    {
+        return new Response("Hello World New!");
+    }
 }
