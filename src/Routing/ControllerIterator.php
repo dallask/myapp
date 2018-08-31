@@ -18,9 +18,10 @@ class ControllerIterator implements \Iterator
     private $position = 0;
     private $array = [];
 
-    public function __construct()
+    public function __construct($routeCollection)
     {
         $this->position = 0;
+        $this->array = $routeCollection;
     }
 
     public function add($item)

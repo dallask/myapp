@@ -39,7 +39,7 @@ $routesCollection->add(
     new Route('~^/123$~', ['MyApp\\Controller\\IndexController', 'indexActionNew'])
 );
 
-$controllerResolver = new ControllerResolver($routesCollection->getRouteCollection());
+$controllerResolver = new ControllerResolver($routesCollection);
 
 $kernel = new HttpKernel(
     $eventDispatcher,

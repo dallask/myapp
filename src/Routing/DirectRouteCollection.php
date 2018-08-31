@@ -21,7 +21,7 @@ class DirectRouteCollection implements DirectRouteCollectionInterface
      */
     public function getIterator()
     {
-        return new ControllerIterator();
+        return new ControllerIterator($this->routeCollection);
     }
 
     /**
@@ -37,7 +37,7 @@ class DirectRouteCollection implements DirectRouteCollectionInterface
     /**
      * @return array
      */
-    public function getRouteCollection()
+    public function getCollection()
     {
         return $this->routeCollection;
     }

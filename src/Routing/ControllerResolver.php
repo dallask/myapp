@@ -9,26 +9,27 @@
 namespace MyApp\Routing;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Controller\ControllerResolverInterface as BaseInterface;
 
 /**
  * Class ControllerResolver
  *
  * @package MyApp\Routing
  */
-class ControllerResolver implements ControllerResolverInterface
+class ControllerResolver implements BaseInterface
 {
 
     private $routes = [];
 
-    public function __construct($routesCollection)
+    public function __construct(DirectRouteCollectionInterface $routesCollection)
     {
-        $this->routes = $routesCollection;
+        $this->routes = $routesCollection->getCollection();
     }
 
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @return callable|false|void
+     * @return bool|callable|false
      */
     public function getController(Request $request)
     {

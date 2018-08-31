@@ -22,4 +22,6 @@ interface DirectRouteCollectionInterface extends \IteratorAggregate
      * @return mixed
      */
     public function add(RouteInterface $route);
+
+    public function getCollection();
 }
